@@ -5,7 +5,7 @@ export const Container = styled.div`
     width: 50vw;
     height: 40px;
     display: flex;
-    padding-left: 16px;
+    padding: 32px;
   }
 
   header {
@@ -13,17 +13,10 @@ export const Container = styled.div`
     align-items: center;
     width: 100%;
 
-    img{
-      padding-top: 10px;
-    }
-
     h1 {
       padding-left: 20px;
     }
   }
-
-  .filter {
-    padding: 16px;
 
     select {
       background: #ffffff;
@@ -34,12 +27,15 @@ export const Container = styled.div`
       text-align: right;
       -webkit-appearance: none;
       -moz-appearance: none;
-      text-indent: 1px;
-      text-overflow: "";
+      width: 20px;
+      text-align: center;
 
-      select > option{
+      option{
         border: 0;
+        box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
+      border-radius: 5px 5px 0px 0px;
+      
       }
-    }
+    
   }
 `;

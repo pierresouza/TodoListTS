@@ -16,8 +16,8 @@ export const Header: React.FC = () => {
           <select className='filter-items' id="filter-todo">
             <option value="">...</option>
             <option value="completed" className='completed'>completed</option>
-            <option value="In Progress" className='In Progress'>In Progress</option>
-            <option value="Removed" className='Removed'>Removed</option>
+            <option value="In Progress" >In Progress</option>
+            <option value="Removed" >Removed</option>
           </select>
           </div>
       </div>

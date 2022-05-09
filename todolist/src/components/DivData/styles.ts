@@ -1,72 +1,78 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-  margin-top: 20px;
-  padding: 8px;
+  display: flex;
+  padding: 16px;
   display: flex;
 
   .todo-container {
     width: 100%;
+    padding-top: 16px;
 
-    .todo-list {
-      margin-bottom: 20px;
-      display: flex;
-      width: 100%;
-      padding-left: 8px;
-
+    .todo-list-items {
+      min-width: 30%;
+      width: 50vw;
       ul {
-        display: flex;
-        padding: 8px;
-        width: 100%;
-        li{
+        list-style: none;
+
+        li {
+          margin-bottom: 24px;
+          padding: 8px 16px;
           display: flex;
-          width: 100%;
-          padding-left: 32px;
-        }
-        &:hover {
-          transition: all 0.5s;
-          transform: scale(1.03);
-          background: #ffffff;
-          box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15);
-          border-radius: 5px;
-        }
+          font-weight:400 ;
 
-        .checkbtn {
-          color: #3d82eb;
-          border: 0;
-          background: white;
-          cursor: pointer;
-        }
-        .deletebtn {
-          color: #dc143c;
-          border: 0;
-          background: white;
-          cursor: pointer;
-        }
-        
-      }
-    }
+          .left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+          }
 
-    .container-new-item {
-      display: flex;
-      padding-left: 14px;
+          &:hover {
+            background: #ffffff;
+            box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+          }
 
-      .addbutton {
-        border: 0;
-        margin-right: 20px;
-        background: white;
-        cursor: pointer;
-      }
-
-      input {
-        padding-left: 8px;
-        border: 0;
-        &::placeholder {
-          color: #3d82eb;
+          .checkbtn {
+            
+            margin:0 32px 0 8px;
+            cursor: pointer;
+            color: #3d82eb;
+          }
+          .deletebtn {
+            color: #dc143c;
+            border: 0;
+            background: white;
+            cursor: pointer;
+          }
         }
       }
     }
   }
- 
+
+  .container-new-item {
+    display: flex;
+    padding-left: 24px;
+
+    .addbutton {
+      border: 0;
+      margin-right: 20px;
+      background: white;
+      cursor: pointer;
+    }
+
+    input {
+      padding-left: 16px;
+      border: 0;
+      width: 50%;
+      &:focus {
+        outline: 0;
+        /* box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15); */
+      }
+
+      &::placeholder {
+        color: #3d82eb;
+      }
+    }
+  }
 `;
