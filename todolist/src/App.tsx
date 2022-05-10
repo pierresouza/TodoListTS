@@ -3,7 +3,7 @@ import React from 'react'
 import { GlobalStyle } from "./styles/GlobalStyles";
 import {MainApp} from './components/index'
 
-function App() {
+export function App() {
   return (
     <>
     <GlobalStyle/>
@@ -12,4 +12,3 @@ function App() {
   )
 }
 
-export default App

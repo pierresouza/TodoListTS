@@ -19,7 +19,7 @@ export const Container = styled.div`
           margin-bottom: 24px;
           padding: 8px 16px;
           display: flex;
-          font-weight:400 ;
+          font-weight: 400;
 
           .left {
             flex: 1;
@@ -34,10 +34,10 @@ export const Container = styled.div`
           }
 
           .checkbtn {
-            
-            margin:0 32px 0 8px;
+            height: 24px;
+            width: 24px;
+            margin: 0 32px 0 8px;
             cursor: pointer;
-            color: #3d82eb;
           }
           .deletebtn {
             color: #dc143c;
@@ -65,10 +65,7 @@ export const Container = styled.div`
       padding-left: 16px;
       border: 0;
       width: 50%;
-      &:focus {
-        outline: 0;
-        /* box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.15); */
-      }
+      outline: 0;
 
       &::placeholder {
         color: #3d82eb;
