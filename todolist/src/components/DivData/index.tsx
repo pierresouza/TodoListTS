@@ -8,12 +8,13 @@ import { IoIosAddCircle } from "react-icons/io";
 export const DivData: React.FC = () => {
   const [value, setValue] = useState<string>("");
   const [todos, setTodos] = useState<string[]>([]);
+  
   const handleRemoveItem = React.useCallback((todo: string) => {
     let newTodos = [...todos];
     newTodos.splice(todos.indexOf(todo), 1)
     setTodos(newTodos);
   }, [todos]);
-
+  
   return (
     <Container>
       <div className="todo-container">
@@ -23,7 +24,7 @@ export const DivData: React.FC = () => {
               <>
                 <li key={index}>
                   <div className="left">
-                    <IoIosCheckmarkCircleOutline size={24} className="checkbtn" />
+                    <input  type={"checkbox"} className="checkbtn" />
                     {todo}
                   </div>
                   <IoIosRemoveCircleOutline size={24} className="deletebtn" onClick={e => handleRemoveItem(todo)} />
