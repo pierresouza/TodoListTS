@@ -7,7 +7,6 @@ import { IoIosAddCircle } from "react-icons/io";
 export const DivData: React.FC = () => {
   const [todos, setTodos] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
-  const [checked, setChecked] = useState(false)
 
   // const handleRemoveItem = React.useCallback(
   //   (todo: string) => {
