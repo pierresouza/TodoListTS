@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircle } from "react-icons/io";
 
-export const DivData = (props) => {
+export const DivData = () => {
   const [todos, setTodos] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
 
@@ -34,9 +34,6 @@ export const DivData = (props) => {
     }
   };
 
-  <AboutForm {...props} onchange={setTodos}/>
-
-
   return (
     <Container>
       <div className="todo-container">
@@ -56,7 +53,6 @@ export const DivData = (props) => {
             ))}
           </ul>
         </div>
-
         <form
           onSubmit={(event) => {
             event.preventDefault();
