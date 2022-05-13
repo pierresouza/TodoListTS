@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircle } from "react-icons/io";
 
-export const DivData: React.FC = () => {
+export const DivData = (props) => {
   const [todos, setTodos] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
 
@@ -12,14 +12,29 @@ export const DivData: React.FC = () => {
   const remover = (index: string) => {
     const removed = todos.filter((item) => item !== index);
     setTodos(removed);
+    console.log(removed)
   };
 
 
-  const Checkbox = (index:string) => {
+  const checkbox = (index:string) => {
     const checkItem = todos.filter((check) => check !== index )
     setTodos(checkItem)
     console.log(checkItem)
   };
+
+
+  const filtrar = (index: string) => {
+
+    let filtro = todos.filter((timesComS => timesComS.charAt(0) == index))
+    console.log("filtro : ", filtro)
+    setTodos(filtro)
+
+    if(index == "todos"){
+      setTodos(todos)
+    }
+  };
+
+  <AboutForm {...props} onchange={setTodos}/>
 
 
   return (
@@ -31,7 +46,7 @@ export const DivData: React.FC = () => {
               <>
                 <li key={index}>
                   <div className="left">
-                    <input type={"checkbox"} className="checkbtn" onChange={() => Checkbox(todo)}/>
+                    <input type={"checkbox"} className="checkbtn" onChange={() => checkbox(todo)}/>
                     {todo}
                   </div>
                   <IoIosRemoveCircleOutline

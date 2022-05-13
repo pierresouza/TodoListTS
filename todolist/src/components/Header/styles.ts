@@ -18,24 +18,21 @@ export const Container = styled.div`
     }
   }
 
-    select {
-      background: #ffffff;
+  select {
+    background: #ffffff;
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
+    border-radius: 5px 5px 0px 0px;
+    border: 0;
+    outline: 0;
+    text-align: right;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+
+    option {
+      border: 0;
       box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
       border-radius: 5px 5px 0px 0px;
-      border: 0;
-      outline: 0;
-      text-align: right;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      width: 20px;
-      text-align: center;
-
-      option{
-        border: 0;
-        box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.15);
-      border-radius: 5px 5px 0px 0px;
-      
-      }
-    
+    }
   }
 `;
