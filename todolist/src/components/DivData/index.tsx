@@ -7,13 +7,20 @@ import { IoIosAddCircle } from "react-icons/io";
 export const DivData: React.FC = () => {
   const [todos, setTodos] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
-  const remover = (index:string) => {
-    const deleteItem = todos.filter((item) => item !== index)
-    setTodos(deleteItem)
-  }
-  const handleCheckboxChange = () => {
-    console.log("pegou");
+
+
+  const remover = (index: string) => {
+    const removed = todos.filter((item) => item !== index);
+    setTodos(removed);
   };
+
+
+  const Checkbox = (index:string) => {
+    const checkItem = todos.filter((check) => check !== index )
+    setTodos(checkItem)
+    console.log(checkItem)
+  };
+
 
   return (
     <Container>
@@ -24,30 +31,44 @@ export const DivData: React.FC = () => {
               <>
                 <li key={index}>
                   <div className="left">
-                    <input type={"checkbox"} className="checkbtn" onChange={() => handleCheckboxChange()}/> {todo} 
-                    </div>
-                  <IoIosRemoveCircleOutline size={24}className="deletebtn" onClick={() => remover(todo)}/>
+                    <input type={"checkbox"} className="checkbtn" onChange={() => Checkbox(todo)}/>
+                    {todo}
+                  </div>
+                  <IoIosRemoveCircleOutline
+                    size={24} className="deletebtn" onClick={() => remover(todo)} />
                 </li>
               </>
-              ))}
+            ))}
           </ul>
         </div>
 
-        <form onSubmit={(event) => { event.preventDefault();
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
             if (!!value) {
-              setTodos([...todos, value]); 
+              setTodos([...todos, value]);
               setValue("");
             }
             setTodos([...todos, value]);
-          }}>
+          }}
+        >
           <div className="container-new-item">
             <button className="addbutton" type="submit">
               <IoIosAddCircle color="blue" size={24} />
             </button>
-            <input type="text" id="new-task-title" value={value} onChange={(event) => setValue(event.target.value)} placeholder="Create New Item" required />
+            <input
+              type="text"
+              id="new-task-title"
+              value={value}
+              onChange={(event) => setValue(event.target.value)}
+              placeholder="Create New Item"
+              required
+              autoComplete="off"
+            />
           </div>
         </form>
       </div>
     </Container>
-  );
+  );  
 };
+
