@@ -2,8 +2,21 @@ import React from "react";
 import Calendario from "../../assets/Calendar.svg";
 import { Container } from "./styles";
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  todos: string[];
+  setTodos: string[];
+}
 
+export const Header = ({ setTodos, todos }: HeaderProps) => {
+  const filtrar = (index: string) => {
+    let filtro = todos.filter((timesComS) => timesComS.charAt(0) == index);
+    console.log("filtro : ", filtro);
+    setTodos(filtro);
+
+    if (index == "todos") {
+      setTodos(todos);
+    }
+  };
 
   return (
     <>
