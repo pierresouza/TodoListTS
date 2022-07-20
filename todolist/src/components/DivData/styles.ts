@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  padding: 16px;
+  padding: 1rem;
   display: flex;
 
   .todo-container {
@@ -16,8 +16,8 @@ export const Container = styled.div`
         list-style: none;
 
         li {
-          margin-bottom: 24px;
-          padding: 8px 16px;
+          margin-bottom: 1.5rem;
+          padding: 0.5rem 1rem;
           display: flex;
           font-weight: 400;
 
@@ -34,9 +34,9 @@ export const Container = styled.div`
           }
 
           .checkbtn {
-            height: 24px;
-            width: 24px;
-            margin: 0 32px 0 8px;
+            height: 1.5rem;
+            width: 1.5rem;
+            margin: 0 2rem 0 0.5rem;
             cursor: pointer;
           }
           .deletebtn {
@@ -52,17 +52,17 @@ export const Container = styled.div`
 
   .container-new-item {
     display: flex;
-    padding-left: 24px;
+    padding-left: 1.5rem;
 
     .addbutton {
       border: 0;
-      margin-right: 20px;
+      margin-right: 1.25rem;
       background: white;
       cursor: pointer;
     }
 
     input {
-      padding-left: 16px;
+      padding-left: 1rem;
       border: 0;
       width: 50%;
       outline: 0;

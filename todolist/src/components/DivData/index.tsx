@@ -4,20 +4,22 @@ import { Container } from "./styles";
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircle } from "react-icons/io";
 
-export const DivData = () => {
+export const DivData = ({}) => {
   const [todos, setTodos] = useState<string[]>([]);
+  const [checked, setChecked] = useState<string[]>([]);
+  const [removed, setRemoved] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
 
-  const remover = (index: string) => {
-    const removed = todos.filter((item) => item !== index);
-    setTodos(removed);
+  const remover = () => {
+    const removed = todos.splice(0, 1);
+    setRemoved(removed);
     console.log(removed);
   };
 
-  const checkbox = (index: string) => {
-    const checkItem = todos.filter((check) => check !== index);
-    setTodos(checkItem);
-    console.log(checkItem);
+  const checkbox = () => {
+    const check = todos.slice(0, 1);
+    setChecked(check);
+    console.log(check);
   };
 
   return (
@@ -29,17 +31,13 @@ export const DivData = () => {
               <>
                 <li key={index}>
                   <div className="left">
-                    <input
-                      type={"checkbox"}
-                      className="checkbtn"
-                      onChange={() => checkbox(todo)}
-                    />
+                    <input type={"checkbox"} className="checkbtn" onClick={checkbox} />
                     {todo}
                   </div>
                   <IoIosRemoveCircleOutline
                     size={24}
                     className="deletebtn"
-                    onClick={() => remover(todo)}
+                    onClick={() => remover()}
                   />
                 </li>
               </>

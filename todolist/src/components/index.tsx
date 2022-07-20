@@ -5,15 +5,10 @@ import { Header } from "./Header";
 
 import { Container } from "./styles";
 
-interface HeaderProps {
-  todos: string[];
-  setTodos: string[];
-}
-
-export const MainApp = ({ todos, setTodos }: HeaderProps) => {
+export const MainApp = () => {
   return (
     <Container>
-      <Header todos={todos} setTodos={setTodos} />
+      <Header />
       <DivData />
     </Container>
   );

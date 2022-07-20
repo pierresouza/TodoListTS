@@ -2,22 +2,7 @@ import React from "react";
 import Calendario from "../../assets/Calendar.svg";
 import { Container } from "./styles";
 
-interface HeaderProps {
-  todos: string[];
-  setTodos: string[];
-}
-
-export const Header = ({ setTodos, todos }: HeaderProps) => {
-  const filtrar = (index: string) => {
-    let filtro = todos.filter((timesComS) => timesComS.charAt(0) == index);
-    console.log("filtro : ", filtro);
-    setTodos(filtro);
-
-    if (index == "todos") {
-      setTodos(todos);
-    }
-  };
-
+export const Header = () => {
   return (
     <>
       <Container>
@@ -27,11 +12,7 @@ export const Header = ({ setTodos, todos }: HeaderProps) => {
             <h1>Today</h1>
           </header>
           <div className="filter">
-            <select
-              className="filter-items"
-              id="filter-todo"
-              onChange={(e) => filtrar(e.target.value)}
-            >
+            <select className="filter-items" id="filter-todo">
               <option value="">...</option>
               <option value="completed" className="completed">
                 completed

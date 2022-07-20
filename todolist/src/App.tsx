@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
-import {MainApp} from './components/index'
+import { MainApp } from "./components/index";
 
 export function App() {
   return (
     <>
-    <GlobalStyle/>
-    <MainApp/>
+      <GlobalStyle />
+      <MainApp />
     </>
-  )
+  );
 }
-
