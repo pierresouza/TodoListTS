@@ -12,7 +12,7 @@ body{
     height: 100vh;
     width: 100vw;
     display: flex;
-    padding: 40px;
+    padding-top: 2.5rem;
     justify-content: center;
 }
 `;

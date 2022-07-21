@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { Container } from "./styles";
+import { Container, HeaderContainer } from "./styles";
+import Calendario from "../../assets/Calendar.svg";
 
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircle } from "react-icons/io";
 
-export const DivData = ({}) => {
+export const DivData = () => {
   const [todos, setTodos] = useState<string[]>([]);
-  const [checked, setChecked] = useState<string[]>([]);
-  const [removed, setRemoved] = useState<string[]>([]);
   const [value, setValue] = useState<string>("");
+  const [check, setCheck] = React.useState(false);
+  const [removed, setRemoved] = useState<string[]>([]);
 
   const remover = () => {
     const removed = todos.splice(0, 1);
@@ -16,29 +17,52 @@ export const DivData = ({}) => {
     console.log(removed);
   };
 
-  const checkbox = () => {
-    const check = todos.slice(0, 1);
-    setChecked(check);
+  const handleChecked = (e: {
+    target: { checked: boolean | ((prevState: boolean) => boolean) };
+  }) => {
+    setCheck(e.target.checked);
+    // altera o estado da checkbox de false para true, ou vice-versa
     console.log(check);
   };
 
   return (
     <Container>
+      <HeaderContainer>
+        <div className="container">
+          <header>
+            <img src={Calendario} alt="" />
+            <h1>Today</h1>
+          </header>
+          <div className="filter">
+            <select className="filter-items" id="filter-todo">
+              <option value="">...</option>
+              <option value="completed" className="completed">
+                completed
+              </option>
+              <option value="todos">In Progress</option>
+              <option value="Removed">Removed</option>
+            </select>
+          </div>
+        </div>
+      </HeaderContainer>
       <div className="todo-container">
         <div className="todo-list-items">
           <ul className="todo">
-            {todos.map((todo, index) => (
+            {todos.map((todo, id) => (
               <>
-                <li key={index}>
+                <li key={id} value={todo}>
                   <div className="left">
-                    <input type={"checkbox"} className="checkbtn" onClick={checkbox} />
+                    <input
+                      type={"checkbox"}
+                      className="checkbtn"
+                      checked={check}
+                      onChange={handleChecked}
+                    />
                     {todo}
                   </div>
-                  <IoIosRemoveCircleOutline
-                    size={24}
-                    className="deletebtn"
-                    onClick={() => remover()}
-                  />
+                  <button value={removed} onClick={() => remover()}>
+                    <IoIosRemoveCircleOutline size={24} className="deletebtn" />
+                  </button>
                 </li>
               </>
             ))}
@@ -65,7 +89,7 @@ export const DivData = ({}) => {
               onChange={(event) => setValue(event.target.value)}
               placeholder="Create New Item"
               required
-              autoComplete="off"
+              // autoComplete="off"
             />
           </div>
         </form>
