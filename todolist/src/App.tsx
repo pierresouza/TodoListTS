@@ -1,13 +1,13 @@
 import React from "react";
 
 import { GlobalStyle } from "./styles/GlobalStyles";
-import { MainApp } from "./components/index";
+import { DivData } from "./components/DivData";
 
 export function App() {
   return (
     <>
       <GlobalStyle />
-      <MainApp />
+      <DivData />
     </>
   );
 }
