@@ -1,66 +1,54 @@
-import React, { useState } from "react";
-import { Container, HeaderContainer } from "./styles";
-import Calendario from "../../assets/Calendar.svg";
+import React from "react";
+
+import type { DivDataProps } from "./types";
+
+import { Container, NewItem } from "./styles";
 
 import { IoIosRemoveCircleOutline } from "react-icons/io";
 import { IoIosAddCircle } from "react-icons/io";
 
-export const DivData = () => {
-  const [todos, setTodos] = useState<string[]>([]);
-  const [value, setValue] = useState<string>("");
-  const [check, setCheck] = React.useState(false);
-  const [removed, setRemoved] = useState<string[]>([]);
-
-  const remover = () => {
-    const removed = todos.splice(0, 1);
-    setRemoved(removed);
-    console.log(removed);
+export const DivData = ({
+  ischecked,
+  setischecked,
+  istodos,
+  setistodos,
+  isremoved,
+  setisremoved,
+  isvalue,
+  setisvalue,
+}: DivDataProps) => {
+  const handleRemove = () => {
+    const remove = istodos.splice(0, 1);
+    setisremoved(remove);
+    console.log(remove);
   };
 
   const handleChecked = (e: {
     target: { checked: boolean | ((prevState: boolean) => boolean) };
   }) => {
-    setCheck(e.target.checked);
-    // altera o estado da checkbox de false para true, ou vice-versa
-    console.log(check);
+    setischecked(e.target.checked);
+    // change checkbox status from false to true
+    console.log(ischecked);
   };
 
   return (
     <Container>
-      <HeaderContainer>
-        <div className="container">
-          <header>
-            <img src={Calendario} alt="" />
-            <h1>Today</h1>
-          </header>
-          <div className="filter">
-            <select className="filter-items" id="filter-todo">
-              <option value="">...</option>
-              <option value="completed" className="completed">
-                completed
-              </option>
-              <option value="todos">In Progress</option>
-              <option value="Removed">Removed</option>
-            </select>
-          </div>
-        </div>
-      </HeaderContainer>
       <div className="todo-container">
         <div className="todo-list-items">
           <ul className="todo">
-            {todos.map((todo, id) => (
+            {istodos.map((todos, id) => (
               <>
-                <li key={id} value={todo}>
+                <li key={id} value={todos}>
                   <div className="left">
                     <input
                       type={"checkbox"}
                       className="checkbtn"
-                      checked={check}
+                      checked={ischecked}
                       onChange={handleChecked}
                     />
-                    {todo}
+                    {todos}
                   </div>
-                  <button value={removed} onClick={() => remover()}>
+                  <button value={isremoved} onClick={handleRemove}>
                     <IoIosRemoveCircleOutline size={24} className="deletebtn" />
                   </button>
                 </li>
@@ -71,27 +59,26 @@ export const DivData = () => {
         <form
           onSubmit={(event) => {
             event.preventDefault();
-            if (!!value) {
-              setTodos([...todos, value]);
-              setValue("");
+            if (!!isvalue) {
+              setistodos([...istodos, isvalue]);
+              setisvalue("");
             }
-            setTodos([...todos, value]);
+            setistodos([...istodos, isvalue]);
           }}
         >
-          <div className="container-new-item">
+          <NewItem>
             <button className="addbutton" type="submit">
               <IoIosAddCircle color="blue" size={24} />
             </button>
             <input
               type="text"
               id="new-task-title"
-              value={value}
-              onChange={(event) => setValue(event.target.value)}
+              value={isvalue}
+              onChange={(event) => setisvalue(event.target.value)}
               placeholder="Create New Item"
               required
-              // autoComplete="off"
             />
-          </div>
+          </NewItem>
         </form>
       </div>
     </Container>
